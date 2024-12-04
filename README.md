@@ -8,7 +8,7 @@
 kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya getirilmesi, sergilenmesi ve tek profil altında gözükmesini amaçlayan bir sosyal ağ.]
 
 - **Danışman:**  
-  [https://github.com/keyvanarasteh](Keyvan Arasteh)
+  [https://github.com/keyvanarasteh] (Keyvan Arasteh)
 
 - **Takım Üyeleri:**
 
