@@ -1,2 +1,3 @@
-# Flutter-Student-Project
-Istinye University student project
+# flutter_app
+
+A new Flutter project.

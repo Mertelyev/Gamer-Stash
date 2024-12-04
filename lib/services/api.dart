@@ -1,0 +1,1 @@
+// sunucuya baglanma, veri alip gonderme.
