@@ -16,17 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Determine which screen to show in the bottom navigation bar
   final List<Widget> _screens = [
-    const Center(
-      child: Text(
-        'Home Screen Content',
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Montserrat', // Montserrat font
-          color: Color(0xFFDDDDDD), // Very light gray color
-        ),
-      ),
-    ),
+    const HomeContent(), // Updated to use HomeContent
     const SearchScreen(), // Call SearchScreen widget here
     const ProfileScreen(), // Call ProfileScreen widget here
     const SettingsScreen(), // Call SettingsScreen widget here
@@ -202,6 +192,182 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
         ),
+      ),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize:
+            MainAxisSize.min, // Make the container height fit its content
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[400], // Darker grey color
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Column(
+              mainAxisSize:
+                  MainAxisSize.min, // Make the container height fit its content
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/Steam_Logo.webp',
+                      width: 24,
+                      height: 24,
+                    ),
+                    const SizedBox(width: 8.0),
+                    const Text(
+                      'Steam',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat', // Montserrat font
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.black,
+                ),
+                const SizedBox(height: 8.0),
+                const Text(
+                  'Games from Steam: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+                const SizedBox(height: 4.0),
+                const Text(
+                  'Achievements from Steam: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[400], // Darker grey color
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Column(
+              mainAxisSize:
+                  MainAxisSize.min, // Make the container height fit its content
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/Epic_Games_Logo.webp',
+                      width: 24,
+                      height: 24,
+                    ),
+                    const SizedBox(width: 8.0),
+                    const Text(
+                      'Epic Games',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat', // Montserrat font
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.black,
+                ),
+                const SizedBox(height: 8.0),
+                const Text(
+                  'Games from Epic Games: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+                const SizedBox(height: 4.0),
+                const Text(
+                  'Achievements from Epic Games: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[400], // Darker grey color
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Column(
+              mainAxisSize:
+                  MainAxisSize.min, // Make the container height fit its content
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/PSN_Logo.webp',
+                      width: 24,
+                      height: 24,
+                    ),
+                    const SizedBox(width: 8.0),
+                    const Text(
+                      'PlayStation',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Montserrat', // Montserrat font
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.black,
+                ),
+                const SizedBox(height: 8.0),
+                const Text(
+                  'Games from PlayStation: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+                const SizedBox(height: 4.0),
+                const Text(
+                  'Achievements from PlayStation: 0',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Montserrat', // Montserrat font
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

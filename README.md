@@ -16,7 +16,7 @@ kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya 
 
 ## Özellikler
 
-- [Ana özellik 1]
+- [Steam, Epic Store ve PSN oyunlarının ve başarımlarının listelenmesi]
 
 - [Ana özellik 2]
 
@@ -27,8 +27,6 @@ kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya 
 - Flutter
 
 - Dart
-
-- [Diğer teknolojiler]
 
 ## Başlangıç
 

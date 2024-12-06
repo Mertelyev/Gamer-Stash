@@ -13,10 +13,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState() {
     super.initState();
 
-    // 2 saniye sonra ana sayfaya geçiş yapacağız.
+    // Navigate to the home screen after 2 seconds.
     Future.delayed(const Duration(seconds: 2), () {
-      // go_router ile ana sayfaya geçiş
-      context.go('/home'); // HomeScreen'e geçiş
+      // Navigate to the home screen using go_router
+      context.go('/home'); // Navigate to HomeScreen
     });
   }
 
@@ -29,47 +29,49 @@ class _LoadingScreenState extends State<LoadingScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 67, 68, 68), // Açık ton
-              Color.fromARGB(255, 41, 43, 46), // Koyu ton
+              Color.fromARGB(255, 67, 68, 68), // Light tone
+              Color.fromARGB(255, 41, 43, 46), // Dark tone
             ],
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo ve yükleme göstergesi bölümü
+            // Logo and loading indicator section
             SizedBox(
               width: double.infinity,
               child: Column(
                 children: [
                   // Logo
                   SizedBox(
-                    width: 250, // Genişlik 250
-                    height: 250, // Yükseklik 250
+                    width: 250, // Width 250
+                    height: 250, // Height 250
                     child: Image.asset(
-                      'assets/images/logo-ai.webp', // Logo dosyasının yolu
+                      'assets/images/logo-ai.webp', // Path to the logo file
                       fit: BoxFit.contain,
                     ),
                   ),
-                  const SizedBox(height: 20), // Resim ile gösterge arasındaki boşluk
+                  const SizedBox(
+                      height: 20), // Space between the image and the indicator
 
-                  // Yükleme göstergesi
+                  // Loading indicator
                   const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                        Color(0xFFB0B0B0)), // Açık gri renk
-                    strokeWidth: 6, // Çizgi kalınlığı
+                        Color(0xFFB0B0B0)), // Light gray color
+                    strokeWidth: 6, // Stroke width
                   ),
 
-                  const SizedBox(height: 60), // Yükleme göstergesi ile yazı arasındaki boşluk
+                  const SizedBox(
+                      height: 60), // Space between the indicator and the text
 
-                  // Loading yazısı
+                  // Loading text
                   const Text(
                     'Loading...',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Montserrat', // Montserrat fontu
-                      color: Color(0xFFDDDDDD), // Çok açık gri renk
+                      fontFamily: 'Montserrat', // Montserrat font
+                      color: Color(0xFFDDDDDD), // Very light gray color
                     ),
                   ),
                 ],
