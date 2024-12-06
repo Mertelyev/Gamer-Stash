@@ -8,10 +8,10 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   // Determine which screen to show in the bottom navigation bar
@@ -41,13 +41,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _titles[_selectedIndex],
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Montserrat', // Montserrat font
-            color: Color(0xFFDDDDDD), // Very light gray color
+        title: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          decoration: BoxDecoration(
+            color: Colors.grey[700],
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Text(
+            _titles[_selectedIndex],
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Montserrat', // Montserrat font
+              color: Color(0xFFDDDDDD), // Very light gray color
+            ),
           ),
         ),
         backgroundColor: const Color.fromARGB(255, 67, 68, 68), // Lighter tone
