@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.home),
+              leading: const Icon(CupertinoIcons.home, color: Colors.white),
               title: const Text(
                 'Home',
                 style: TextStyle(
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () => _onItemTapped(0),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.search),
+              leading: const Icon(CupertinoIcons.search, color: Colors.white),
               title: const Text(
                 'Search',
                 style: TextStyle(
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () => _onItemTapped(1),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.person),
+              leading: const Icon(CupertinoIcons.person, color: Colors.white),
               title: const Text(
                 'Profile',
                 style: TextStyle(
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () => _onItemTapped(2),
             ),
             ListTile(
-              leading: const Icon(CupertinoIcons.settings),
+              leading: const Icon(CupertinoIcons.settings, color: Colors.white),
               title: const Text(
                 'Settings',
                 style: TextStyle(
