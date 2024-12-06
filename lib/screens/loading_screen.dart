@@ -8,16 +8,34 @@ class LoadingScreen extends StatefulWidget {
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingScreenState extends State<LoadingScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
+
+    // Initialize the animation controller and animation
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
 
     // Navigate to the home screen after 2 seconds.
     Future.delayed(const Duration(seconds: 2), () {
       // Navigate to the home screen using go_router
       context.go('/home'); // Navigate to HomeScreen
     });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -64,14 +82,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   const SizedBox(
                       height: 60), // Space between the indicator and the text
 
-                  // Loading text
-                  const Text(
-                    'Loading...',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Montserrat', // Montserrat font
-                      color: Color(0xFFDDDDDD), // Very light gray color
+                  // Loading text with animation
+                  FadeTransition(
+                    opacity: _animation,
+                    child: const Text(
+                      'Loading...',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Montserrat', // Montserrat font
+                        color: Color(0xFFDDDDDD), // Very light gray color
+                      ),
                     ),
                   ),
                 ],

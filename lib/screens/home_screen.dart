@@ -235,6 +235,7 @@ class HomeContent extends StatelessWidget {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat', // Montserrat font
+                        color: Color(0xFF424242), // Dark grey color
                       ),
                     ),
                   ],
@@ -248,6 +249,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -256,6 +258,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
               ],
@@ -288,6 +291,7 @@ class HomeContent extends StatelessWidget {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat', // Montserrat font
+                        color: Color(0xFF424242), // Dark grey color
                       ),
                     ),
                   ],
@@ -301,6 +305,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -309,6 +314,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
               ],
@@ -341,6 +347,7 @@ class HomeContent extends StatelessWidget {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat', // Montserrat font
+                        color: Color(0xFF424242), // Dark grey color
                       ),
                     ),
                   ],
@@ -354,6 +361,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -362,6 +370,7 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Montserrat', // Montserrat font
+                    color: Color(0xFF424242), // Dark grey color
                   ),
                 ),
               ],
