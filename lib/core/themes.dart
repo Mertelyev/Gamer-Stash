@@ -19,13 +19,13 @@ class AppTheme {
         unselectedItemColor: Color(0xFFDDDDDD),
       ),
       textTheme: const TextTheme(
-        headline6: TextStyle(
+        headlineSmall: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w500,
           fontFamily: 'Montserrat',
           color: Color(0xFFDDDDDD),
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           fontSize: 16,
           fontFamily: 'Montserrat',
           color: Color(0xFF424242),
