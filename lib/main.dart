@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'core/routes.dart'; // go_router yapılandırmasını import et
+import 'screens/home_screen.dart'; // Import HomeScreen
+import 'screens/profile_screen.dart'; // Import ProfileScreen
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // Flutter widget'larını başlat
@@ -21,4 +23,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, // Debug bandını kaldır
     );
   }
+}
+
+// Example usage of ProfileScreen
+void navigateToProfile(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const ProfileScreen(
+        username: 'YourUsername', // Replace with actual username
+        email: 'your.email@example.com', // Replace with actual email
+        profileImagePath:
+            'assets/images/profile_picture.png', // Ensure this path is correct
+      ),
+    ),
+  );
 }

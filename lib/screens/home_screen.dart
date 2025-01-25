@@ -18,7 +18,12 @@ class HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const HomeContent(), // Updated to use HomeContent
     const SearchScreen(), // Call SearchScreen widget here
-    const ProfileScreen(), // Call ProfileScreen widget here
+    ProfileScreen(
+      username: 'YourUsername', // Replace with actual username
+      email: 'your.email@example.com', // Replace with actual email
+      profileImagePath:
+          'assets/images/profile_picture.png', // Ensure this path is correct
+    ), // Call ProfileScreen widget here
     const SettingsScreen(), // Call SettingsScreen widget here
   ];
 

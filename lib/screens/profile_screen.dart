@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final String username;
+  final String email;
+  final String profileImagePath;
+
+  const ProfileScreen({
+    super.key,
+    required this.username,
+    required this.email,
+    required this.profileImagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -17,16 +28,53 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: const Center(
-          child: Text(
-            'Profile Screen Content',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'Montserrat', // Montserrat font
-              color: Color(0xFFDDDDDD), // Very light gray color
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage(
+                  'assets/images/profile_picture.png'), // Profile picture
             ),
-          ),
+            const SizedBox(height: 20),
+            Text(
+              username,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Montserrat',
+                color: Color(0xFFDDDDDD),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              email,
+              style: const TextStyle(
+                fontSize: 16,
+                fontFamily: 'Montserrat',
+                color: Color(0xFFDDDDDD),
+              ),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {
+                // Handle logout
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 67, 68, 68),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              ),
+              child: const Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFFDDDDDD),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
