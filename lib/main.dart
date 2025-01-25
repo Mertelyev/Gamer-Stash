@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'core/routes.dart'; // go_router yapılandırmasını import et
-import 'screens/home_screen.dart'; // Import HomeScreen
 import 'screens/profile_screen.dart'; // Import ProfileScreen
 
 void main() {

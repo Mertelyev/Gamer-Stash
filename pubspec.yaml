@@ -28,8 +28,7 @@ flutter:
     - assets/icons/
     - assets/languages/
     - assets/motions/
-    - assets/fonts/ # Fontlar için assets klasörü eklendi
-
+    - assets/fonts/
   fonts:
     - family: Montserrat
       fonts:
