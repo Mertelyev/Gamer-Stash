@@ -1,4 +1,4 @@
-# Flutter Projesi
+# Gamer Stash Flutter Projesi
 
 ![İstinye Üniversitesi](https://www.unitededucation.com/linklogoch/istinye-university-logo.png)
 
@@ -18,9 +18,9 @@ kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya 
 
 - [Steam, Epic Store ve PSN oyunlarının ve başarımlarının listelenmesi]
 
-- [Ana özellik 2]
+- [Kullanıcı profili oluşturma]
 
-- [Ana özellik 3]
+- [Oyunlar ve başarımlar arasında arama yapabilme]
 
 ## Kullanılan Teknolojiler
 
@@ -32,11 +32,9 @@ kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya 
 
 ### Gereksinimler
 
-- Flutter SDK (sürüm X.X.X)
+- Flutter SDK (sürüm 3.24.5)
 
-- Dart SDK (sürüm X.X.X)
-
-- [Diğer gerekli yazılımlar]
+- Dart SDK (sürüm 3.2.4)
 
 ### Kurulum Adımları
 
@@ -78,13 +76,13 @@ flutter  run
 
 lib/
 
-├── modeller/ # Veri modelleri
+├── models/ # Veri modelleri
 
-├── ekranlar/ # Uygulama ekranları
+├── screens/ # Uygulama ekranları
 
 ├── widgets/ # Tekrar kullanılabilir arayüz öğeleri
 
-├── servisler/ # API servisleri
+├── services/ # API servisleri
 
 └── yardımcılar/ # Yardımcı fonksiyonlar
 
@@ -113,8 +111,6 @@ lib/
 ## İletişim
 
 - Proje Bağlantısı: [[GitHub repository linki](https://github.com/Mertelyev/Gamer-Stash)]
-
-- İstinye Üniversitesi: [https://www.istinye.edu.tr/](https://www.istinye.edu.tr/)
 
 ## Teşekkürler
 
