@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Genel tema ayarları
+  // Tema ayarlari
   static ThemeData get lightTheme {
     return ThemeData(
       primaryColor: Colors.blue,
@@ -34,7 +34,7 @@ class AppTheme {
     );
   }
 
-  // Sıkça kullanılan stil bileşenleri
+  // tema stil bilesenleri
   static const TextStyle montserrat18W500 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,

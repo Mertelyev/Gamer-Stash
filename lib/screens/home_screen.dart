@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'profile_screen.dart'; // Import profile screen
-import 'search_screen.dart'; // Import search screen
-import 'settings_screen.dart'; // Import settings screen
+import 'profile_screen.dart';
+import 'search_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,20 +14,19 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // Determine which screen to show in the bottom navigation bar
+  // ekranlarin listesi ve gozukmesi icin
   final List<Widget> _screens = [
-    const HomeContent(), // Updated to use HomeContent
-    const SearchScreen(), // Call SearchScreen widget here
+    const HomeContent(), // homecontent widget cagir
+    const SearchScreen(), // searchscreen widget cagir
     ProfileScreen(
-      username: 'YourUsername', // Replace with actual username
-      email: 'your.email@example.com', // Replace with actual email
-      profileImagePath:
-          'assets/images/profile_picture.png', // Ensure this path is correct
-    ), // Call ProfileScreen widget here
-    const SettingsScreen(), // Call SettingsScreen widget here
+      username: 'YourUsername', // ornek kullanici adi
+      email: 'your.email@example.com', // ornek email
+      profileImagePath: 'assets/images/profile_picture.png',
+    ), // profilescreen
+    const SettingsScreen(), // settings screen
   ];
 
-  // Determine the title based on the selected index
+  // baslik listesi
   final List<String> _titles = [
     'Home',
     'Search',
@@ -39,7 +38,7 @@ class HomeScreenState extends State<HomeScreen> {
     setState(() {
       _selectedIndex = index;
     });
-    Navigator.pop(context); // Close the drawer
+    Navigator.pop(context);
   }
 
   @override
@@ -57,17 +56,17 @@ class HomeScreenState extends State<HomeScreen> {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Montserrat', // Montserrat font
-              color: Color(0xFFDDDDDD), // Very light gray color
+              fontFamily: 'Montserrat',
+              color: Color(0xFFDDDDDD),
             ),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 67, 68, 68), // Lighter tone
-        iconTheme: const IconThemeData(
-            color: Color(0xFFDDDDDD)), // Set hamburger icon color
+        backgroundColor: const Color.fromARGB(255, 67, 68, 68),
+        iconTheme:
+            const IconThemeData(color: Color(0xFFDDDDDD)), // hamburgerin rengi
       ),
       drawer: Drawer(
-        backgroundColor: const Color.fromARGB(255, 41, 43, 46), // Dark tone
+        backgroundColor: const Color.fromARGB(255, 41, 43, 46),
         child: Column(
           children: [
             Container(
@@ -77,8 +76,8 @@ class HomeScreenState extends State<HomeScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromARGB(255, 67, 68, 68), // Light tone
-                    Color.fromARGB(255, 41, 43, 46), // Dark tone
+                    Color.fromARGB(255, 67, 68, 68),
+                    Color.fromARGB(255, 41, 43, 46),
                   ],
                 ),
               ),
@@ -96,8 +95,8 @@ class HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Montserrat', // Montserrat font
-                      color: Color(0xFFDDDDDD), // Very light gray color
+                      fontFamily: 'Montserrat',
+                      color: Color(0xFFDDDDDD),
                     ),
                   ),
                 ],
@@ -110,8 +109,8 @@ class HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'Montserrat', // Montserrat font
-                  color: Color(0xFFDDDDDD), // Very light gray color
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFFDDDDDD),
                 ),
               ),
               onTap: () => _onItemTapped(0),
@@ -123,8 +122,8 @@ class HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'Montserrat', // Montserrat font
-                  color: Color(0xFFDDDDDD), // Very light gray color
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFFDDDDDD),
                 ),
               ),
               onTap: () => _onItemTapped(1),
@@ -136,8 +135,8 @@ class HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'Montserrat', // Montserrat font
-                  color: Color(0xFFDDDDDD), // Very light gray color
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFFDDDDDD),
                 ),
               ),
               onTap: () => _onItemTapped(2),
@@ -149,8 +148,8 @@ class HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'Montserrat', // Montserrat font
-                  color: Color(0xFFDDDDDD), // Very light gray color
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFFDDDDDD),
                 ),
               ),
               onTap: () => _onItemTapped(3),
@@ -164,20 +163,20 @@ class HomeScreenState extends State<HomeScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 67, 68, 68), // Light tone
-              Color.fromARGB(255, 41, 43, 46), // Dark tone
+              Color.fromARGB(255, 67, 68, 68),
+              Color.fromARGB(255, 41, 43, 46),
             ],
           ),
         ),
-        child: _screens[_selectedIndex], // Show the selected screen
+        child: _screens[_selectedIndex], // secilen ekrani getir
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: const Color.fromARGB(255, 41, 43, 46), // Dark tone
+          canvasColor: const Color.fromARGB(255, 41, 43, 46),
         ),
         child: BottomNavigationBar(
           selectedItemColor: Colors.white,
-          unselectedItemColor: const Color(0xFFDDDDDD), // Very light gray color
+          unselectedItemColor: const Color(0xFFDDDDDD),
           currentIndex: _selectedIndex,
           items: const [
             BottomNavigationBarItem(
@@ -199,8 +198,7 @@ class HomeScreenState extends State<HomeScreen> {
           ],
           onTap: (index) {
             setState(() {
-              _selectedIndex =
-                  index; // Update index when a new screen is selected
+              _selectedIndex = index; // yeni ekran secildiginde index updatei
             });
           },
         ),
@@ -216,8 +214,7 @@ class HomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisSize:
-            MainAxisSize.min, // Make the container height fit its content
+        mainAxisSize: MainAxisSize.min, // icerige sigmasi icin
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -225,12 +222,11 @@ class HomeContent extends StatelessWidget {
             margin: const EdgeInsets.all(16.0),
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: Colors.grey[400], // Darker grey color
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Column(
-              mainAxisSize:
-                  MainAxisSize.min, // Make the container height fit its content
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -246,8 +242,8 @@ class HomeContent extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat', // Montserrat font
-                        color: Color(0xFF424242), // Dark grey color
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFF424242),
                       ),
                     ),
                   ],
@@ -260,8 +256,8 @@ class HomeContent extends StatelessWidget {
                   'Games from Steam: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -269,8 +265,8 @@ class HomeContent extends StatelessWidget {
                   'Achievements from Steam: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
               ],
@@ -281,12 +277,11 @@ class HomeContent extends StatelessWidget {
             margin: const EdgeInsets.all(16.0),
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: Colors.grey[400], // Darker grey color
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Column(
-              mainAxisSize:
-                  MainAxisSize.min, // Make the container height fit its content
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -302,8 +297,8 @@ class HomeContent extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat', // Montserrat font
-                        color: Color(0xFF424242), // Dark grey color
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFF424242),
                       ),
                     ),
                   ],
@@ -316,8 +311,8 @@ class HomeContent extends StatelessWidget {
                   'Games from Epic Games: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -325,8 +320,8 @@ class HomeContent extends StatelessWidget {
                   'Achievements from Epic Games: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
               ],
@@ -337,12 +332,11 @@ class HomeContent extends StatelessWidget {
             margin: const EdgeInsets.all(16.0),
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: Colors.grey[400], // Darker grey color
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Column(
-              mainAxisSize:
-                  MainAxisSize.min, // Make the container height fit its content
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -358,8 +352,8 @@ class HomeContent extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat', // Montserrat font
-                        color: Color(0xFF424242), // Dark grey color
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFF424242),
                       ),
                     ),
                   ],
@@ -372,8 +366,8 @@ class HomeContent extends StatelessWidget {
                   'Games from PlayStation: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
                 const SizedBox(height: 4.0),
@@ -381,8 +375,8 @@ class HomeContent extends StatelessWidget {
                   'Achievements from PlayStation: 0',
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Montserrat', // Montserrat font
-                    color: Color(0xFF424242), // Dark grey color
+                    fontFamily: 'Montserrat',
+                    color: Color(0xFF424242),
                   ),
                 ),
               ],

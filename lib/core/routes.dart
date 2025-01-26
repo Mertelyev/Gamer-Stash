@@ -1,13 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import '../screens/loading_screen.dart';
-import '../screens/home_screen.dart'; // Import HomeScreen
+import '../screens/home_screen.dart';
 import '../screens/settings_screen.dart';
-import '../screens/profile_screen.dart'; // Import ProfileScreen
+import '../screens/profile_screen.dart';
 
-// Router yapılandırması
+// router yapilandirma
 final GoRouter router = GoRouter(
-  initialLocation: '/', // Başlangıç rotası
+  initialLocation: '/', // baslangic
   routes: [
     GoRoute(
       path: '/',
@@ -31,10 +31,9 @@ final GoRouter router = GoRouter(
       path: '/profile',
       builder: (BuildContext context, GoRouterState state) {
         return const ProfileScreen(
-          username: 'YourUsername', // Replace with actual username
-          email: 'your.email@example.com', // Replace with actual email
-          profileImagePath:
-              'assets/images/profile_picture.png', // Ensure this path is correct
+          username: 'YourUsername', // ornek kullanici adi
+          email: 'your.email@example.com', // ornek email
+          profileImagePath: 'assets/images/profile_picture.png',
         );
       },
     ),

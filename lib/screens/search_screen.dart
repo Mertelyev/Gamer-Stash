@@ -18,7 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   List<String> _getSearchResults(String query) {
-    // Dummy search results
+    // arama ornek sonuclari
     final allResults = [
       'Result 1',
       'Result 2',

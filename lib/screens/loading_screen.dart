@@ -17,7 +17,7 @@ class _LoadingScreenState extends State<LoadingScreen>
   void initState() {
     super.initState();
 
-    // Initialize the animation controller and animation
+    // animasyon kontrolcusu
     _controller = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
@@ -25,10 +25,10 @@ class _LoadingScreenState extends State<LoadingScreen>
 
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
 
-    // Navigate to the home screen after 2 seconds.
+    // 2 saniye sonra yukleme ekranindan home
     Future.delayed(const Duration(seconds: 2), () {
-      // Navigate to the home screen using go_router
-      context.go('/home'); // Navigate to HomeScreen
+      // routerla home ekrani
+      context.go('/home');
     });
   }
 
@@ -47,42 +47,40 @@ class _LoadingScreenState extends State<LoadingScreen>
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 67, 68, 68), // Light tone
-              Color.fromARGB(255, 41, 43, 46), // Dark tone
+              Color.fromARGB(255, 67, 68, 68),
+              Color.fromARGB(255, 41, 43, 46),
             ],
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo and loading indicator section
+            // logo ve yukleme animasyonu
             SizedBox(
               width: double.infinity,
               child: Column(
                 children: [
-                  // Logo
+                  // logo
                   SizedBox(
-                    width: 250, // Width 250
-                    height: 250, // Height 250
+                    width: 250,
+                    height: 250,
                     child: Image.asset(
-                      'assets/images/logo-ai.webp', // Path to the logo file
+                      'assets/images/logo-ai.webp',
                       fit: BoxFit.contain,
                     ),
                   ),
-                  const SizedBox(
-                      height: 20), // Space between the image and the indicator
+                  const SizedBox(height: 20),
 
-                  // Loading indicator
+                  // yukleme animasyonu
                   const CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        Color(0xFFB0B0B0)), // Light gray color
-                    strokeWidth: 6, // Stroke width
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Color(0xFFB0B0B0)),
+                    strokeWidth: 6, // kalinlik
                   ),
 
-                  const SizedBox(
-                      height: 60), // Space between the indicator and the text
+                  const SizedBox(height: 60),
 
-                  // Loading text with animation
+                  // loading yazisi animasyonlu
                   FadeTransition(
                     opacity: _animation,
                     child: const Text(
@@ -90,8 +88,8 @@ class _LoadingScreenState extends State<LoadingScreen>
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat', // Montserrat font
-                        color: Color(0xFFDDDDDD), // Very light gray color
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFFDDDDDD),
                       ),
                     ),
                   ),

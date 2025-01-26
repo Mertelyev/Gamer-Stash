@@ -12,8 +12,8 @@ class SettingsScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 67, 68, 68), // Light tone
-              Color.fromARGB(255, 41, 43, 46), // Dark tone
+              Color.fromARGB(255, 67, 68, 68),
+              Color.fromARGB(255, 41, 43, 46),
             ],
           ),
         ),
@@ -23,8 +23,8 @@ class SettingsScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Montserrat', // Montserrat font
-              color: Color(0xFFDDDDDD), // Very light gray color
+              fontFamily: 'Montserrat',
+              color: Color(0xFFDDDDDD),
             ),
           ),
         ),

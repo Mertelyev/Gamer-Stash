@@ -23,8 +23,8 @@ class ProfileScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 67, 68, 68), // Light tone
-              Color.fromARGB(255, 41, 43, 46), // Dark tone
+              Color.fromARGB(255, 67, 68, 68),
+              Color.fromARGB(255, 41, 43, 46),
             ],
           ),
         ),
@@ -33,8 +33,7 @@ class ProfileScreen extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage(
-                  'assets/images/profile_picture.png'), // Profile picture
+              backgroundImage: AssetImage('assets/images/profile_picture.png'),
             ),
             const SizedBox(height: 20),
             Text(
@@ -58,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Handle logout
+                // logout islemi
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 67, 68, 68),
