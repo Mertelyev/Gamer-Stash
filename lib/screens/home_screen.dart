@@ -279,7 +279,7 @@ class PlatformCard extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Montserrat',
-                  color: Color(0xFF424242),
+                  color: Color(0xFF212121), // Darker color
                 ),
               ),
             ],
@@ -291,7 +291,7 @@ class PlatformCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontFamily: 'Montserrat',
-              color: Color(0xFF424242),
+              color: Color(0xFF212121), // Darker color
             ),
           ),
           const SizedBox(height: 4.0),
@@ -300,7 +300,7 @@ class PlatformCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontFamily: 'Montserrat',
-              color: Color(0xFF424242),
+              color: Color(0xFF212121), // Darker color
             ),
           ),
         ],
