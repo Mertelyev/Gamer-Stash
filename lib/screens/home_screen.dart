@@ -17,7 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const HomeContent(),
     const SearchScreen(),
-    ProfileScreen(
+    const ProfileScreen(
       username: 'YourUsername',
       email: 'your.email@example.com',
       profileImagePath: 'assets/images/profile_picture.png',
@@ -210,7 +210,7 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: SingleChildScrollView(
         child: Column(
@@ -224,9 +224,9 @@ class HomeContent extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   StatisticItem(
                     icon: CupertinoIcons.game_controller_solid,
                     value: '142',
@@ -253,14 +253,14 @@ class HomeContent extends StatelessWidget {
               achievementsCount: 125,
               playtime: '234h',
             ),
-            PlatformCard(
+            const PlatformCard(
               platformName: 'Epic Games',
               logoPath: 'assets/images/Epic_Games_Logo.webp',
               gamesCount: 52,
               achievementsCount: 355,
               playtime: '189h',
             ),
-            PlatformCard(
+            const PlatformCard(
               platformName: 'PlayStation',
               logoPath: 'assets/images/PSN_Logo.webp',
               gamesCount: 11,
@@ -284,8 +284,8 @@ class StatisticItem extends StatelessWidget {
     required this.icon,
     required this.value,
     required this.label,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
