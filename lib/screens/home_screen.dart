@@ -14,19 +14,17 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // ekranlarin listesi ve gozukmesi icin
   final List<Widget> _screens = [
-    const HomeContent(), // homecontent widget cagir
-    const SearchScreen(), // searchscreen widget cagir
+    const HomeContent(),
+    const SearchScreen(),
     ProfileScreen(
-      username: 'YourUsername', // ornek kullanici adi
-      email: 'your.email@example.com', // ornek email
+      username: 'YourUsername',
+      email: 'your.email@example.com',
       profileImagePath: 'assets/images/profile_picture.png',
-    ), // profilescreen
-    const SettingsScreen(), // settings screen
+    ),
+    const SettingsScreen(),
   ];
 
-  // baslik listesi
   final List<String> _titles = [
     'Home',
     'Search',
@@ -198,7 +196,7 @@ class HomeScreenState extends State<HomeScreen> {
           ],
           onTap: (index) {
             setState(() {
-              _selectedIndex = index; // yeni ekran secildiginde index updatei
+              _selectedIndex = index;
             });
           },
         ),
@@ -219,7 +217,7 @@ class HomeContent extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Toplam İstatistikler Kartı
+            // Stats Card
             Container(
               margin: const EdgeInsets.all(16.0),
               padding: const EdgeInsets.all(16.0),
@@ -247,24 +245,27 @@ class HomeContent extends StatelessWidget {
                 ],
               ),
             ),
-            // Platform Kartları
+            // Platform Cards
             const PlatformCard(
               platformName: 'Steam',
               logoPath: 'assets/images/Steam_Logo.webp',
               gamesCount: 36,
               achievementsCount: 125,
+              playtime: '234h',
             ),
             PlatformCard(
               platformName: 'Epic Games',
               logoPath: 'assets/images/Epic_Games_Logo.webp',
               gamesCount: 52,
               achievementsCount: 355,
+              playtime: '189h',
             ),
             PlatformCard(
               platformName: 'PlayStation',
               logoPath: 'assets/images/PSN_Logo.webp',
               gamesCount: 11,
               achievementsCount: 52,
+              playtime: '469h',
             ),
           ],
         ),
@@ -320,12 +321,14 @@ class PlatformCard extends StatelessWidget {
   final String logoPath;
   final int gamesCount;
   final int achievementsCount;
+  final String playtime;
 
   const PlatformCard({
     required this.platformName,
     required this.logoPath,
     required this.gamesCount,
     required this.achievementsCount,
+    required this.playtime,
     super.key,
   });
 
@@ -333,51 +336,100 @@ class PlatformCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(16.0),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[400],
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Image.asset(logoPath, width: 24, height: 24),
-              const SizedBox(width: 8.0),
-              Text(
-                platformName,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Montserrat',
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            // Platform detay sayfasına yönlendirme
+          },
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Image.asset(
+                        logoPath,
+                        width: 24,
+                        height: 24,
+                      ),
+                    ),
+                    const SizedBox(width: 12.0),
+                    Text(
+                      platformName,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: 'Montserrat',
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          const Divider(color: Colors.black),
-          const SizedBox(height: 8.0),
-          Text(
-            'Games from $platformName: $gamesCount',
-            style: const TextStyle(
-              fontSize: 16,
-              fontFamily: 'Montserrat',
-              color: Color(0xFF212121),
+                const SizedBox(height: 16.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildStat(
+                      CupertinoIcons.game_controller_solid,
+                      '$gamesCount',
+                      'Games',
+                    ),
+                    _buildStat(
+                      CupertinoIcons.star_fill,
+                      '$achievementsCount',
+                      'Achievements',
+                    ),
+                    _buildStat(
+                      CupertinoIcons.time,
+                      playtime,
+                      'Playtime',
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 4.0),
-          Text(
-            'Achievements from $platformName: $achievementsCount',
-            style: const TextStyle(
-              fontSize: 16,
-              fontFamily: 'Montserrat',
-              color: Color(0xFF212121),
-            ),
-          ),
-        ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildStat(IconData icon, String value, String label) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.white70, size: 20),
+        const SizedBox(height: 6),
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontFamily: 'Montserrat',
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.grey[400],
+            fontFamily: 'Montserrat',
+          ),
+        ),
+      ],
     );
   }
 }

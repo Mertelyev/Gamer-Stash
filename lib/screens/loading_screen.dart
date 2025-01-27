@@ -15,14 +15,11 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   void initState() {
     super.initState();
-
-    // Animasyon kontrolcusu
     _controller = AnimationController(
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     )..repeat();
 
-    // 2 saniye sonra yukleme ekranindan home
     Future.delayed(const Duration(seconds: 2), () {
       context.go('/home');
     });
@@ -55,7 +52,6 @@ class _LoadingScreenState extends State<LoadingScreen>
               width: double.infinity,
               child: Column(
                 children: [
-                  // Logo
                   SizedBox(
                     width: 250,
                     height: 250,
@@ -65,8 +61,6 @@ class _LoadingScreenState extends State<LoadingScreen>
                     ),
                   ),
                   const SizedBox(height: 20),
-
-                  // Yukleme animasyonu
                   RotationTransition(
                     turns: _controller,
                     child: const Icon(
@@ -75,10 +69,7 @@ class _LoadingScreenState extends State<LoadingScreen>
                       color: Color(0xFFB0B0B0),
                     ),
                   ),
-
                   const SizedBox(height: 60),
-
-                  // Loading yazisi
                   AnimatedBuilder(
                     animation: _controller,
                     builder: (context, child) {

@@ -172,17 +172,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void _showChangePasswordDialog(BuildContext context) {
-    // Password change dialog implementation
-  }
+  void _showChangePasswordDialog(BuildContext context) {}
 
-  void _showLinkAccountsDialog(BuildContext context) {
-    // Link accounts dialog implementation
-  }
+  void _showLinkAccountsDialog(BuildContext context) {}
 
-  void _showPrivacySettingsDialog(BuildContext context) {
-    // Privacy settings dialog implementation
-  }
+  void _showPrivacySettingsDialog(BuildContext context) {}
 
   void _showLogoutDialog(BuildContext context) {
     showDialog(
@@ -201,7 +195,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           TextButton(
             onPressed: () {
-              // Implement logout logic here
               Navigator.pop(context);
             },
             child: const Text('Logout'),
