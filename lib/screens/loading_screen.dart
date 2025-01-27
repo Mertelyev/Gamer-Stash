@@ -11,23 +11,19 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
 
-    // animasyon kontrolcusu
+    // Animasyon kontrolcusu
     _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
-    )..repeat(reverse: true);
-
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    )..repeat();
 
     // 2 saniye sonra yukleme ekranindan home
     Future.delayed(const Duration(seconds: 2), () {
-      // routerla home ekrani
       context.go('/home');
     });
   }
@@ -55,12 +51,11 @@ class _LoadingScreenState extends State<LoadingScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // logo ve yukleme animasyonu
             SizedBox(
               width: double.infinity,
               child: Column(
                 children: [
-                  // logo
+                  // Logo
                   SizedBox(
                     width: 250,
                     height: 250,
@@ -71,27 +66,35 @@ class _LoadingScreenState extends State<LoadingScreen>
                   ),
                   const SizedBox(height: 20),
 
-                  // yukleme animasyonu
-                  const CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Color(0xFFB0B0B0)),
-                    strokeWidth: 6, // kalinlik
+                  // Yukleme animasyonu
+                  RotationTransition(
+                    turns: _controller,
+                    child: const Icon(
+                      Icons.refresh,
+                      size: 50,
+                      color: Color(0xFFB0B0B0),
+                    ),
                   ),
 
                   const SizedBox(height: 60),
 
-                  // loading yazisi animasyonlu
-                  FadeTransition(
-                    opacity: _animation,
-                    child: const Text(
-                      'Loading...',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xFFDDDDDD),
-                      ),
-                    ),
+                  // Loading yazisi
+                  AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return Opacity(
+                        opacity: _controller.value,
+                        child: const Text(
+                          'Loading...',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Montserrat',
+                            color: Color(0xFFDDDDDD),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

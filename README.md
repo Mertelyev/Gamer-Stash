@@ -4,8 +4,8 @@
 
 ## Proje Hakkında
 
-[Günümüzde çok fazla oyun satış platformu var, kütüphane takibi yapmak git gide zorlaştı. Oluşturulan oyuncu profillerinin,
-kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya getirilmesi, sergilenmesi ve tek profil altında gözükmesini amaçlayan bir sosyal ağ.]
+Günümüzde çok fazla oyun satış platformu var, kütüphane takibi yapmak git gide zorlaştı. Oluşturulan oyuncu profillerinin,
+kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya getirilmesi, sergilenmesi ve tek profil altında gözükmesini amaçlayan bir sosyal ağ.
 
 - **Danışman:**  
   [https://github.com/keyvanarasteh] (Keyvan Arasteh)
@@ -16,11 +16,11 @@ kütüphanede sahip olunan ögelerin ve kazanılmış başarımların bir araya 
 
 ## Özellikler
 
-- [Steam, Epic Store ve PSN oyunlarının ve başarımlarının listelenmesi]
+- Steam, Epic Store ve PSN oyunlarının ve başarımlarının listelenmesi
 
-- [Kullanıcı profili oluşturma]
+- Kullanıcı profili oluşturma
 
-- [Oyunlar ve başarımlar arasında arama yapabilme]
+- Oyunlar ve başarımlar arasında arama yapabilme
 
 ## Kullanılan Teknolojiler
 

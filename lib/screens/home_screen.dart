@@ -216,170 +216,91 @@ class HomeContent extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min, // icerige sigmasi icin
         crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          PlatformCard(
+            platformName: 'Steam',
+            logoPath: 'assets/images/Steam_Logo.webp',
+            gamesCount: 0,
+            achievementsCount: 0,
+          ),
+          PlatformCard(
+            platformName: 'Epic Games',
+            logoPath: 'assets/images/Epic_Games_Logo.webp',
+            gamesCount: 0,
+            achievementsCount: 0,
+          ),
+          PlatformCard(
+            platformName: 'PlayStation',
+            logoPath: 'assets/images/PSN_Logo.webp',
+            gamesCount: 0,
+            achievementsCount: 0,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class PlatformCard extends StatelessWidget {
+  final String platformName;
+  final String logoPath;
+  final int gamesCount;
+  final int achievementsCount;
+
+  const PlatformCard({
+    required this.platformName,
+    required this.logoPath,
+    required this.gamesCount,
+    required this.achievementsCount,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.grey[400],
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16.0),
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/Steam_Logo.webp',
-                      width: 24,
-                      height: 24,
-                    ),
-                    const SizedBox(width: 8.0),
-                    const Text(
-                      'Steam',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xFF424242),
-                      ),
-                    ),
-                  ],
+          Row(
+            children: [
+              Image.asset(logoPath, width: 24, height: 24),
+              const SizedBox(width: 8.0),
+              Text(
+                platformName,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Montserrat',
+                  color: Color(0xFF424242),
                 ),
-                const Divider(
-                  color: Colors.black,
-                ),
-                const SizedBox(height: 8.0),
-                const Text(
-                  'Games from Steam: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-                const SizedBox(height: 4.0),
-                const Text(
-                  'Achievements from Steam: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-              ],
+              ),
+            ],
+          ),
+          const Divider(color: Colors.black),
+          const SizedBox(height: 8.0),
+          Text(
+            'Games from $platformName: $gamesCount',
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: 'Montserrat',
+              color: Color(0xFF424242),
             ),
           ),
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16.0),
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/Epic_Games_Logo.webp',
-                      width: 24,
-                      height: 24,
-                    ),
-                    const SizedBox(width: 8.0),
-                    const Text(
-                      'Epic Games',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xFF424242),
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(
-                  color: Colors.black,
-                ),
-                const SizedBox(height: 8.0),
-                const Text(
-                  'Games from Epic Games: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-                const SizedBox(height: 4.0),
-                const Text(
-                  'Achievements from Epic Games: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16.0),
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/PSN_Logo.webp',
-                      width: 24,
-                      height: 24,
-                    ),
-                    const SizedBox(width: 8.0),
-                    const Text(
-                      'PlayStation',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                        color: Color(0xFF424242),
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(
-                  color: Colors.black,
-                ),
-                const SizedBox(height: 8.0),
-                const Text(
-                  'Games from PlayStation: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-                const SizedBox(height: 4.0),
-                const Text(
-                  'Achievements from PlayStation: 0',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Montserrat',
-                    color: Color(0xFF424242),
-                  ),
-                ),
-              ],
+          const SizedBox(height: 4.0),
+          Text(
+            'Achievements from $platformName: $achievementsCount',
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: 'Montserrat',
+              color: Color(0xFF424242),
             ),
           ),
         ],
