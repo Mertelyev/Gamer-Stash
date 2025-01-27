@@ -212,31 +212,105 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min, // icerige sigmasi icin
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          PlatformCard(
-            platformName: 'Steam',
-            logoPath: 'assets/images/Steam_Logo.webp',
-            gamesCount: 0,
-            achievementsCount: 0,
-          ),
-          PlatformCard(
-            platformName: 'Epic Games',
-            logoPath: 'assets/images/Epic_Games_Logo.webp',
-            gamesCount: 0,
-            achievementsCount: 0,
-          ),
-          PlatformCard(
-            platformName: 'PlayStation',
-            logoPath: 'assets/images/PSN_Logo.webp',
-            gamesCount: 0,
-            achievementsCount: 0,
-          ),
-        ],
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Toplam İstatistikler Kartı
+            Container(
+              margin: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  StatisticItem(
+                    icon: CupertinoIcons.game_controller_solid,
+                    value: '142',
+                    label: 'Total Games',
+                  ),
+                  StatisticItem(
+                    icon: CupertinoIcons.star_fill,
+                    value: '1,337',
+                    label: 'Achievements',
+                  ),
+                  StatisticItem(
+                    icon: CupertinoIcons.time,
+                    value: '892h',
+                    label: 'Playtime',
+                  ),
+                ],
+              ),
+            ),
+            // Platform Kartları
+            const PlatformCard(
+              platformName: 'Steam',
+              logoPath: 'assets/images/Steam_Logo.webp',
+              gamesCount: 36,
+              achievementsCount: 125,
+            ),
+            PlatformCard(
+              platformName: 'Epic Games',
+              logoPath: 'assets/images/Epic_Games_Logo.webp',
+              gamesCount: 52,
+              achievementsCount: 355,
+            ),
+            PlatformCard(
+              platformName: 'PlayStation',
+              logoPath: 'assets/images/PSN_Logo.webp',
+              gamesCount: 11,
+              achievementsCount: 52,
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+// Yeni StatisticItem widget'ı
+class StatisticItem extends StatelessWidget {
+  final IconData icon;
+  final String value;
+  final String label;
+
+  const StatisticItem({
+    required this.icon,
+    required this.value,
+    required this.label,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: Colors.white, size: 24),
+        const SizedBox(height: 8),
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Montserrat',
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.grey[400],
+            fontSize: 12,
+            fontFamily: 'Montserrat',
+          ),
+        ),
+      ],
     );
   }
 }
@@ -279,7 +353,6 @@ class PlatformCard extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Montserrat',
-                  color: Color(0xFF212121), // Darker color
                 ),
               ),
             ],
@@ -291,7 +364,7 @@ class PlatformCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontFamily: 'Montserrat',
-              color: Color(0xFF212121), // Darker color
+              color: Color(0xFF212121),
             ),
           ),
           const SizedBox(height: 4.0),
@@ -300,7 +373,7 @@ class PlatformCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontFamily: 'Montserrat',
-              color: Color(0xFF212121), // Darker color
+              color: Color(0xFF212121),
             ),
           ),
         ],
