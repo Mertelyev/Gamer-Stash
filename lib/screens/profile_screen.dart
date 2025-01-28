@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../core/themes.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String username;
@@ -19,19 +21,13 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 67, 68, 68),
-            Color.fromARGB(255, 41, 43, 46),
-          ],
-        ),
-      ),
+      decoration: themeProvider.backgroundDecoration,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -47,10 +43,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 16),
                   Text(
                     widget.username,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: isDark ? Colors.white : Colors.grey[800],
                       fontFamily: 'Montserrat',
                     ),
                   ),
@@ -58,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     widget.email,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey[400],
+                      color: isDark ? Colors.grey[400] : Colors.grey[600],
                       fontFamily: 'Montserrat',
                     ),
                   ),
@@ -105,14 +101,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildSectionHeader(String title) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: isDark ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
@@ -125,25 +124,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
     IconData icon,
     VoidCallback onTap,
   ) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return ListTile(
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(
+        icon,
+        color: isDark ? Colors.white : Colors.grey[800],
+      ),
       title: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: isDark ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(
-          color: Colors.grey,
+        style: TextStyle(
+          color: isDark ? Colors.grey : Colors.grey[600],
           fontFamily: 'Montserrat',
         ),
       ),
-      trailing: const Icon(
+      trailing: Icon(
         Icons.arrow_forward_ios,
-        color: Colors.white,
+        color: isDark ? Colors.white : Colors.grey[800],
         size: 16,
       ),
       onTap: onTap,

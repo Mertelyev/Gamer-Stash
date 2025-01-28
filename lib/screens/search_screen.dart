@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+import '../core/themes.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -77,6 +79,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return Column(
       children: [
         Padding(
@@ -85,13 +90,14 @@ class _SearchScreenState extends State<SearchScreen> {
             controller: _searchController,
             decoration: InputDecoration(
               hintText: 'Search games...',
-              hintStyle: TextStyle(color: Colors.grey[400]),
-              prefixIcon:
-                  const Icon(CupertinoIcons.search, color: Colors.white),
+              hintStyle: TextStyle(
+                  color: isDark ? Colors.grey[400] : Colors.grey[600]),
+              prefixIcon: Icon(CupertinoIcons.search,
+                  color: isDark ? Colors.white : Colors.grey[800]),
               suffixIcon: _searchController.text.isNotEmpty
                   ? IconButton(
-                      icon:
-                          const Icon(CupertinoIcons.clear, color: Colors.white),
+                      icon: Icon(CupertinoIcons.clear,
+                          color: isDark ? Colors.white : Colors.grey[800]),
                       onPressed: () {
                         _searchController.clear();
                         setState(() {
@@ -101,16 +107,14 @@ class _SearchScreenState extends State<SearchScreen> {
                     )
                   : null,
               filled: true,
-              fillColor: Colors.black26,
+              fillColor: isDark ? Colors.black26 : Colors.grey[200],
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
                 borderSide: BorderSide.none,
               ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
             ),
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: isDark ? Colors.white : Colors.grey[800],
               fontSize: 16,
               fontFamily: 'Montserrat',
             ),
@@ -141,18 +145,20 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildGameListItem(GameSearchResult game) {
+    final isDark = Provider.of<ThemeProvider>(context).isDarkMode;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       decoration: BoxDecoration(
-        color: Colors.black26,
+        color: isDark ? Colors.black26 : Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.all(12.0),
         title: Text(
           game.title,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: isDark ? Colors.white : Colors.grey[800],
             fontSize: 16,
             fontWeight: FontWeight.bold,
             fontFamily: 'Montserrat',
@@ -161,7 +167,7 @@ class _SearchScreenState extends State<SearchScreen> {
         subtitle: Text(
           game.platform,
           style: TextStyle(
-            color: Colors.grey[400],
+            color: isDark ? Colors.grey[400] : Colors.grey[600],
             fontFamily: 'Montserrat',
           ),
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../core/themes.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -15,17 +17,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 67, 68, 68),
-            Color.fromARGB(255, 41, 43, 46),
-          ],
-        ),
-      ),
+      decoration: themeProvider.backgroundDecoration,
       child: ListView(
         children: [
           _buildSectionHeader('Appearance'),
@@ -71,14 +66,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget _buildSectionHeader(String title) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: isDark ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
@@ -92,26 +90,56 @@ class _SettingsScreenState extends State<SettingsScreen> {
     bool value,
     Function(bool) onChanged,
   ) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    if (title == 'Dark Mode') {
+      return ListTile(
+        leading: Icon(icon,
+            color: themeProvider.isDarkMode ? Colors.white : Colors.grey[800]),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: themeProvider.isDarkMode ? Colors.white : Colors.grey[800],
+            fontFamily: 'Montserrat',
+          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(
+            color: themeProvider.isDarkMode ? Colors.grey : Colors.grey[600],
+            fontFamily: 'Montserrat',
+          ),
+        ),
+        trailing: Switch(
+          value: themeProvider.isDarkMode,
+          onChanged: (bool value) {
+            themeProvider.toggleTheme();
+          },
+        ),
+      );
+    }
+
+    // Diğer switch'ler için normal değer kullanımı
     return ListTile(
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(icon,
+          color: themeProvider.isDarkMode ? Colors.white : Colors.grey[800]),
       title: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: themeProvider.isDarkMode ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(
-          color: Colors.grey,
+        style: TextStyle(
+          color: themeProvider.isDarkMode ? Colors.grey : Colors.grey[600],
           fontFamily: 'Montserrat',
         ),
       ),
       trailing: Switch(
         value: value,
         onChanged: onChanged,
-        activeColor: Colors.blue,
       ),
     );
   }
@@ -122,25 +150,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
     IconData icon,
     VoidCallback onTap,
   ) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return ListTile(
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(
+        icon,
+        color: isDark ? Colors.white : Colors.grey[800],
+      ),
       title: Text(
         title,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: isDark ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(
-          color: Colors.grey,
+        style: TextStyle(
+          color: isDark ? Colors.grey : Colors.grey[600],
           fontFamily: 'Montserrat',
         ),
       ),
-      trailing: const Icon(
+      trailing: Icon(
         Icons.arrow_forward_ios,
-        color: Colors.white,
+        color: isDark ? Colors.white : Colors.grey[800],
         size: 16,
       ),
       onTap: onTap,
@@ -148,32 +182,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget _buildLanguageSelector() {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDark = themeProvider.isDarkMode;
+
     return ListTile(
-      leading: const Icon(Icons.language, color: Colors.white),
-      title: const Text(
+      leading:
+          Icon(Icons.language, color: isDark ? Colors.white : Colors.grey[800]),
+      title: Text(
         'Language',
         style: TextStyle(
-          color: Colors.white,
+          color: isDark ? Colors.white : Colors.grey[800],
           fontFamily: 'Montserrat',
         ),
       ),
       subtitle: Text(
         _selectedLanguage,
-        style: const TextStyle(
-          color: Colors.grey,
+        style: TextStyle(
+          color: isDark ? Colors.grey : Colors.grey[600],
           fontFamily: 'Montserrat',
         ),
       ),
       trailing: DropdownButton<String>(
         value: _selectedLanguage,
-        dropdownColor: const Color.fromARGB(255, 67, 68, 68),
+        dropdownColor:
+            isDark ? const Color.fromARGB(255, 67, 68, 68) : Colors.grey[100],
         items: ['English', 'Turkish', 'German']
             .map((String value) => DropdownMenuItem<String>(
                   value: value,
                   child: Text(
                     value,
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: isDark ? Colors.white : Colors.grey[800],
                       fontFamily: 'Montserrat',
                     ),
                   ),

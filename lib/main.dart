@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'core/routes.dart'; // go_router yapılandırmasını import et
+import 'package:provider/provider.dart';
+import 'core/routes.dart';
+import 'core/themes.dart';
 import 'screens/profile_screen.dart'; // Import ProfileScreen
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); // Flutter widget'larını başlat
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +19,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      routerConfig: router, // go_router yapılandırmamızı kullan
-      debugShowCheckedModeBanner: false, // Debug bandını kaldır
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp.router(
+          title: 'Flutter App',
+          theme: themeProvider.theme,
+          routerConfig: router,
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

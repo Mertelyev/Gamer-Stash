@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 
+class ThemeProvider with ChangeNotifier {
+  bool _isDarkMode = true;
+  bool get isDarkMode => _isDarkMode;
+
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
+    notifyListeners();
+  }
+
+  ThemeData get theme => _isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme;
+
+  // Gradient arka plan için getter
+  BoxDecoration get backgroundDecoration => BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: _isDarkMode
+              ? [
+                  const Color.fromARGB(255, 67, 68, 68),
+                  const Color.fromARGB(255, 41, 43, 46),
+                ]
+              : [
+                  Colors.grey[100]!,
+                  Colors.grey[200]!,
+                ],
+        ),
+      );
+}
+
 class AppTheme {
-  // Tema ayarlari
-  static ThemeData get lightTheme {
+  static ThemeData get darkTheme {
     return ThemeData(
+      brightness: Brightness.dark,
       primaryColor: Colors.blue,
       scaffoldBackgroundColor: const Color.fromARGB(255, 67, 68, 68),
       appBarTheme: const AppBarTheme(
@@ -28,8 +57,75 @@ class AppTheme {
         bodyLarge: TextStyle(
           fontSize: 16,
           fontFamily: 'Montserrat',
-          color: Color(0xFF424242),
+          color: Colors.white70,
         ),
+      ),
+    );
+  }
+
+  static ThemeData get lightTheme {
+    return ThemeData(
+      brightness: Brightness.light,
+      primaryColor: Colors.blue,
+      scaffoldBackgroundColor: Colors.grey[100],
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.grey[800]),
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: Colors.grey[800],
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Montserrat',
+        ),
+      ),
+      drawerTheme: const DrawerThemeData(
+        backgroundColor: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey[600],
+      ),
+      textTheme: TextTheme(
+        headlineSmall: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Montserrat',
+          color: Colors.grey[800],
+        ),
+        bodyLarge: TextStyle(
+          fontSize: 16,
+          fontFamily: 'Montserrat',
+          color: Colors.grey[800],
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          fontFamily: 'Montserrat',
+          color: Colors.grey[700],
+        ),
+        labelLarge: const TextStyle(
+          fontSize: 16,
+          fontFamily: 'Montserrat',
+          color: Colors.black87,
+        ),
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.grey[800],
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return Colors.blue;
+          }
+          return Colors.grey[400];
+        }),
+        trackColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return Colors.blue.withOpacity(0.5);
+          }
+          return Colors.grey[300];
+        }),
       ),
     );
   }

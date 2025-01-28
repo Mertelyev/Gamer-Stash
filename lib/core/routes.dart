@@ -5,9 +5,8 @@ import '../screens/home_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/profile_screen.dart';
 
-// router yapilandirma
 final GoRouter router = GoRouter(
-  initialLocation: '/', // baslangic
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
@@ -31,8 +30,8 @@ final GoRouter router = GoRouter(
       path: '/profile',
       builder: (BuildContext context, GoRouterState state) {
         return const ProfileScreen(
-          username: 'YourUsername', // ornek kullanici adi
-          email: 'your.email@example.com', // ornek email
+          username: 'YourUsername',
+          email: 'your.email@example.com',
           profileImagePath: 'assets/images/profile_picture.png',
         );
       },
