@@ -11,7 +11,6 @@ class ThemeProvider with ChangeNotifier {
 
   ThemeData get theme => _isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme;
 
-  // Gradient arka plan için getter
   BoxDecoration get backgroundDecoration => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
