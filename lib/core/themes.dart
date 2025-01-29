@@ -11,7 +11,6 @@ class ThemeProvider with ChangeNotifier {
 
   ThemeData get theme => _isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme;
 
-  // Gradient arka plan için getter
   BoxDecoration get backgroundDecoration => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -114,14 +113,14 @@ class AppTheme {
         color: Colors.grey[800],
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.blue;
           }
           return Colors.grey[400];
         }),
-        trackColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
+        trackColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
             return Colors.blue.withOpacity(0.5);
           }
           return Colors.grey[300];
