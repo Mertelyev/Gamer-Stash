@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ThemeProvider with ChangeNotifier {
   bool _isDarkMode = true;
@@ -46,16 +47,14 @@ class AppTheme {
         selectedItemColor: Colors.white,
         unselectedItemColor: Color(0xFFDDDDDD),
       ),
-      textTheme: const TextTheme(
-        headlineSmall: TextStyle(
+      textTheme: TextTheme(
+        headlineSmall: GoogleFonts.montserrat(
           fontSize: 18,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Montserrat',
-          color: Color(0xFFDDDDDD),
+          color: const Color(0xFFDDDDDD),
         ),
-        bodyLarge: TextStyle(
+        bodyLarge: GoogleFonts.montserrat(
           fontSize: 16,
-          fontFamily: 'Montserrat',
           color: Colors.white70,
         ),
       ),

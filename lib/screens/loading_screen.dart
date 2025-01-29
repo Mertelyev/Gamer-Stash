@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -88,6 +89,15 @@ class LoadingScreenState extends State<LoadingScreen>
                     ),
                   );
                 },
+              ),
+              const SizedBox(height: 30),
+              SizedBox(
+                height: 120,
+                width: 120,
+                child: Lottie.asset(
+                  'assets/motions/gaming.json', // .lottie yerine .json
+                  fit: BoxFit.contain,
+                ),
               ),
               const SizedBox(height: 30),
               SizedBox(
