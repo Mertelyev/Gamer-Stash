@@ -90,7 +90,7 @@ lib/
 
 ## Ekran Görüntüleri
 
-[Uygulama ekran görüntüleri buraya eklenecek]
+![Uygulama Ekran Görüntüsü](./app_screenshots.png)
 
 ## Projeye Katkı Sağlama
 

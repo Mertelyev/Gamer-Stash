@@ -119,7 +119,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
     }
 
-    // Diğer switch'ler için normal değer kullanımı
     return ListTile(
       leading: Icon(icon,
           color: themeProvider.isDarkMode ? Colors.white : Colors.grey[800]),
@@ -227,29 +226,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  void _showChangePasswordDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color.fromARGB(255, 67, 68, 68),
-        title: const Text(
-          'Change Password',
-          style: TextStyle(color: Colors.white),
-        ),
-        content: const Text(
-          'Password change functionality will be implemented here.',
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
-  }
-
   void _showPrivacyPolicy(BuildContext context) {
     // Privacy policy implementation
   }
@@ -270,36 +246,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           style: TextStyle(color: Colors.white),
         ),
       ],
-    );
-  }
-
-  void _showLogoutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color.fromARGB(255, 67, 68, 68),
-        title: const Text(
-          'Logout',
-          style: TextStyle(color: Colors.white),
-        ),
-        content: const Text(
-          'Are you sure you want to logout?',
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              // Implement logout logic here
-              Navigator.pop(context);
-            },
-            child: const Text('Logout'),
-          ),
-        ],
-      ),
     );
   }
 }

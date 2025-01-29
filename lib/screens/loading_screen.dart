@@ -5,10 +5,10 @@ class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
 
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  LoadingScreenState createState() => LoadingScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen>
+class LoadingScreenState extends State<LoadingScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
@@ -39,7 +39,9 @@ class _LoadingScreenState extends State<LoadingScreen>
     _controller.repeat(reverse: true);
 
     Future.delayed(const Duration(seconds: 3), () {
-      context.go('/home');
+      if (mounted) {
+        context.go('/home');
+      }
     });
   }
 
