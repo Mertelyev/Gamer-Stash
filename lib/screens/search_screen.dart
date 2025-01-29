@@ -17,7 +17,7 @@ class SearchScreenState extends State<SearchScreen> {
   void _onSearchChanged() {
     setState(() {
       if (_searchController.text.isEmpty) {
-        _searchResults = _getAllGames(); // Tüm oyunları göster
+        _searchResults = _getAllGames();
       } else {
         _searchResults = _getSearchResults(_searchController.text);
       }
@@ -25,7 +25,6 @@ class SearchScreenState extends State<SearchScreen> {
   }
 
   List<GameSearchResult> _getAllGames() {
-    // Tüm oyunların listesi
     return [
       GameSearchResult(
         title: 'Red Dead Redemption 2',
@@ -52,7 +51,6 @@ class SearchScreenState extends State<SearchScreen> {
         platform: 'PlayStation',
         rating: 4.7,
       ),
-      // Daha fazla oyun eklenebilir
     ];
   }
 
@@ -66,7 +64,6 @@ class SearchScreenState extends State<SearchScreen> {
   void initState() {
     super.initState();
     _searchController.addListener(_onSearchChanged);
-    // Başlangıçta tüm oyunları göster
     _searchResults = _getAllGames();
   }
 
@@ -186,7 +183,7 @@ class SearchScreenState extends State<SearchScreen> {
           ],
         ),
         onTap: () {
-          // Oyun detay sayfasına yönlendirme
+          // Navigate to game detail page
         },
       ),
     );

@@ -31,7 +31,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            // Profil Başlığı
             Container(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -61,8 +60,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
-            // Account Settings
             _buildSectionHeader('Account Settings'),
             _buildSettingTile(
               'Edit Profile',

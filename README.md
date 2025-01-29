@@ -88,9 +88,10 @@ lib/
 
 ```
 
-## Ekran Görüntüleri
+## Ekran Görüntüleri ve Demo Videosu
 
 ![Uygulama Ekran Görüntüsü](./app_screenshots.png)
+![Demo Videosu](./app_video.mp4)
 
 ## Projeye Katkı Sağlama
 

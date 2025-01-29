@@ -281,7 +281,6 @@ class HomeContent extends StatelessWidget {
   }
 }
 
-// Yeni StatisticItem widget'ı
 class StatisticItem extends StatelessWidget {
   final IconData icon;
   final String value;

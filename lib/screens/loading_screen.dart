@@ -95,7 +95,7 @@ class LoadingScreenState extends State<LoadingScreen>
                 height: 120,
                 width: 120,
                 child: Lottie.asset(
-                  'assets/motions/gaming.json', // .lottie yerine .json
+                  'assets/motions/gaming.json',
                   fit: BoxFit.contain,
                 ),
               ),

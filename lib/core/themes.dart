@@ -128,7 +128,6 @@ class AppTheme {
     );
   }
 
-  // tema stil bilesenleri
   static const TextStyle montserrat18W500 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,

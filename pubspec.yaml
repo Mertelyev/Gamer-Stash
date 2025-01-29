@@ -31,14 +31,14 @@ flutter:
     - assets/icons/
     - assets/languages/
     - assets/motions/
-    - assets/motions/gaming.json # .lottie yerine .json kullanıyoruz
+    - assets/motions/gaming.json
     - assets/fonts/
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Regular.ttf # Regular font
-        - asset: assets/fonts/Montserrat-Bold.ttf # Bold font
-        - asset: assets/fonts/Montserrat-Italic.ttf # Italic font
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat-Italic.ttf
 
 flutter_launcher_icons:
   android: "launcher_icon"
