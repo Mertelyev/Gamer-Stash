@@ -92,6 +92,7 @@ lib/
 
 ![Uygulama Ekran Görüntüsü](./app_screenshots.png)
 ![Demo Videosu](./app_video.mp4)
+https://github.com/user-attachments/assets/fdef0e69-c49e-4316-b33a-0a0af79e223a
 
 ## Projeye Katkı Sağlama
 
